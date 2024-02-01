@@ -1,0 +1,81 @@
+# IDEs and editors
+.idea
+*.iml
+*.iws
+.project
+.classpath
+*.launch
+.settings
+*.sublime-workspace
+.vscode
+
+# Dependency directories
+node_modules
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Packaged SuiteCloud projects
+build
+
+# misc
+.sass-cache
+
+# Optional npm cache directory
+.npm
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Output of 'npm pack'
+*.tgz
+
+#sdf related files
+src/deploy.xml
+src/manifest.xml
+project.json
+suitecloud.config.js
+
+#Test folders
+*test
+
+
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Library/mockdata
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/atlQuote
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/GenerateQuoteJSON
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/generatequotemr
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/nsQuote
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objDifferences
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objDifferencesNoDups
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objResult
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/REDUCECONTEXT_REFRESH
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/atlQuote
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/atlQuoteMap
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/GenerateQuoteJSON
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/generatequotemr
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/nsCartMap
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/nsQuote
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objAtlassianQuote
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objAtlDraft
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objDifferences
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objDifferencesNoDups
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objNSQuote
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/objResult
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/options to send toConfigureRecord
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/REDUCECONTEXT_REFRESH
+src/FileCabinet/SuiteScripts/Atlassian Cart Integration/Atlassian/summaryContext.output
+refreshmock.json
+
+
+
+
+
+
+#not yet included
+src/FileCabinet/SuiteScripts/POC Intercompany PO/

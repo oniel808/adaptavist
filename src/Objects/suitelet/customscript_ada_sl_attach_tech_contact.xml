@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ada_sl_attach_tech_contact">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>[SR] Attach Tech Contact SL</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/Atlassian Cart Integration/Opportunity/Suitelet/ada_sl_attach_contact.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ada_sl_attach_tech_contact">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>[SR] Attach Tech Contact SL</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

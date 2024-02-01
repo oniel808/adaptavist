@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+          href="/core/media/media.nl?id=4720&c=&h=mZOa1Nanqil7lNwMlnARo2avWoISRjIficGsqvMuOxWsv29o&_xt=.css">
+    <script src="/core/media/media.nl?id=4723&c=&h=X2nV87x9JmORtwEApPCZZXZHNSpE6ZwjksupARI7AitWXZjE&_xt=.js"></script>
+    <script src="/core/media/media.nl?id=4721&c=&h=zWjEPKE6SzPptV61VokhXzKBFX_jO8Vd94ePrCUjPGyAmTBv&_xt=.js"></script>
+    <style>
+        .ui.grid.components {
+            width: 100%
+        }
+
+        .row.card {
+            box-shadow: 1px 1px 3px #bababa;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .card-header {
+            color: #454545 !important;
+            font-weight: normal !important;
+            margin-bottom: 20px !important;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .hide-col {
+            display: none;
+        }
+
+        .not-matched {
+            background-color: rgb(255, 203, 203);
+        }
+
+        .matched {
+            background-color: rgb(179, 255, 181);
+        }
+    </style>
+</head>
+
+<body>
+<div class="ui bottom attached">
+    <div class="ui grid components" style="padding-left: 20px; padding-top: 13px;">
+
+        <div class="row">
+            <table class="ui selectable celled table striped currentTableList">
+                <tbody>
+                <div class="ui segment refresh-loader" style="height:100px; width:100% !important">
+                    <div class="ui active inverted dimmer">
+                        <div class="ui text loader">Loading</div>
+                    </div>
+                    <p></p>
+                </div>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row actions">
+            <div class="right floated right aligned sixteen wide column">
+                <!-- <button class="ui grey button" name="cancel" onclick="closeWindow()">
+                    Cancel
+                </button> -->
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+    const scriptLink = '/app/site/hosting/scriptlet.nl?script=customscript_adap_atlassiancart_op_sl&deploy=customdeploy_adap_atlassiancart_op_sl';
+
+    $.ajax({
+        url: `${scriptLink}&action=getRefreshQuote&estimate=${getUrlParameter('estid')}`,
+        method: 'GET',
+        success: function (data) {
+            console.log(data);
+            loader({
+                isLoading: false,
+                name: 'refresh'
+            })
+            data = JSON.parse(data || '[]');
+            if (data.httpcode != 500) {
+                var ifAllSynced = true
+                for (const [quoteIndex, quote] of data.entries()) {
+                    console.log('quote', quote)
+                    var strFields = ''
+                    var lines = ''
+                    if (!quote.toAdd.length && !quote.toUpdate.length && !quote.toDelete.length && !quote.toUpdateTechContact.length) {
+                        continue
+                    }
+                    for (const [itemIndex, item] of quote.toAdd.entries()) {
+                        ifAllSynced = false;
+                        lines += ` <li>${item.productName} | Tier: ${item.unitCount} | Amount: ${item.unitPrice} | ${item.supportEntitlementNumber ? item.supportEntitlementNumber : 'No SEN'} | Action: Added</li> `;
+                    }
+                    for (const [itemIndex, item] of quote.toUpdate.entries()) {
+                        ifAllSynced = false;
+                        lines += ` <li>${item.productName} | Tier: ${item.unitCount} | Amount: ${item.unitPrice} | ${item.supportEntitlementNumber ? item.supportEntitlementNumber : 'No SEN'} | Action: Modified</li> `;
+                    }
+                    for (const [itemIndex, item] of quote.toDelete.entries()) {
+                        ifAllSynced = false;
+                        lines += ` <li>${item.productName} | Tier: ${item.unitCount} | Amount: ${item.unitPrice} | ${item.supportEntitlementNumber ? item.supportEntitlementNumber : 'No SEN'} | Action: Deleted</li> `;
+                    }
+                    for (const [itemIndex, item] of quote.toUpdateTechContact.entries()) {
+                        ifAllSynced = false;
+                        lines += ` <li>Technical Contact : FirstName: ${item.firstName} | LastName: ${item.lastName} | Email: ${item.email} | Phone: ${item.phone}| Action: Modified</li> `;
+                    }
+
+                    if (!ifAllSynced) {
+                        $(` <ul class="${quote.name}-header">
+                        <li class="${quote.name}-line">${quote.name}</li>
+                            <ul>
+                                ${lines}
+                            </ul>
+                        </ul>`).appendTo('.currentTableList tbody');
+                    }
+                }
+                if (ifAllSynced) {
+                    $(`<div class='row fluid' style="background-color:#b1ffb0">
+                        <p style="
+                                font-size: 16px;
+                                padding: 32px;
+                                text-align: center;
+                            ">
+                            All Quotes are Synced with Atlassian
+                        </p>
+                    </div>`).appendTo('.currentTableList tbody')
+                } else {
+                    $(`<div class="ui blue button" name="refreshQuote" onclick="refreshQuote()">
+                    Update Atlassian
+                </div>`).appendTo('.row.actions div')
+                }
+            } else {
+                $(`<div class='row fluid' style="background-color:#ffc3c8">
+                        <p style="
+                                font-size: 16px;
+                                padding: 32px;
+                                text-align: center;
+                            ">
+                            Cannot connect to Atlassian Server, please try again later
+                        </p>
+                    </div>`).appendTo('.currentTableList tbody')
+            }
+        }
+    })
+
+    function refreshQuote() {
+        require(['N/ui/dialog'], (dialog) => {
+            const intEstId = getUrlParameter('estid');
+
+            function closeWindow() {
+                $('.x-tool-close').trigger('click')
+            }
+
+            let options = {
+                title: 'Atlassian Sync to NetSuite Quote',
+                message: 'Are you sure you want to Update Netsuite Quote?'
+            };
+            dialog.confirm(options).then(success).catch(failure);
+
+            function success(result) {
+                if (result) {
+                    console.log('ok')
+                    $.ajax({
+                        url: `${scriptLink}&action=refreshQuote&estimate=${getUrlParameter('estid')}`,
+                        method: 'GET',
+                        success: function (data) {
+                            if (data) {
+                                console.log('refreshing...')
+                                console.log('window.parent.location', window.parent.location)
+                                window.parent.location.reload()
+                                return true
+                            }
+                        }
+                    })
+                }
+            }
+
+            function failure(reason) {
+                console.log('Failure: ' + reason);
+            }
+
+        })
+    }
+
+    function getUrlParameter(option) {
+        strSearchQuery = window.location.search;
+        objUrlParams = new URLSearchParams(strSearchQuery);
+        return objUrlParams.get(option);
+    }
+
+    const loader = (option) => {
+        if (option.isLoading) {
+            $(`<div class="ui segment ${option.name}-loader" style="height:${option.height || 100}px; width:100% !important">
+					<div class="ui active ${option.isDimmed ? '' : 'inverted'} dimmer">
+					<div class="ui text loader">Loading</div>
+					</div>
+					<p></p>
+				</div>`).insertAfter(`.${option.anchor}`);
+        } else {
+            $(`.${option.name}-loader`).remove();
+        }
+    }
+</script>
+
+</html>

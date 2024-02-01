@@ -1,0 +1,71 @@
+{
+  "orderNumber": "AT-257649174",
+  "poNumber": null,
+  "createdDate": "2023-08-08T15:58:00.640-0500",
+  "dueDate": "2023-11-06T00:00:00.000-0600",
+  "billingContact": {
+    "companyName": "Adaptavist UK Services Limited",
+    "firstName": "Kunaal",
+    "lastName": "Jagtianey",
+    "email": "kjagtianey@adaptavist.com",
+    "phone": "00000",
+    "taxId": "GB 242020075",
+    "address": {
+      "address1": "25 Wilton Road",
+      "address2": "",
+      "city": "Victoria",
+      "postalCode": "SW1V 1LW",
+      "state": "LONDON",
+      "country": "United Kingdom"
+    }
+  },
+  "technicalContact": {
+    "companyName": "Tudor Investment Corp",
+    "firstName": "Jason",
+    "lastName": "Calabro",
+    "email": "jcalabro@tudor.com",
+    "phone": "",
+    "taxId": "",
+    "address": {
+      "address1": "200 Elm Street",
+      "address2": "",
+      "city": "Stamford",
+      "postalCode": "06902",
+      "state": "CT",
+      "country": "United States of America"
+    }
+  },
+  "currency": "USD",
+  "partnerName": "Adaptavist UK Services Limited",
+  "orderItems": [{
+    "productName": "Atlassian Cloud",
+    "startDate": "2023-09-07T00:00:00.000-0500",
+    "endDate": "2024-09-07T00:00:00.000-0500",
+    "licensedTo": "Tudor Investment Corp",
+    "description": "Atlassian Cloud (Annual Payments) Converted from Monthly Payments",
+    "edition": null,
+    "cloudSiteHostname": "tudor.atlassian.net",
+    "supportEntitlementNumber": "SEN-19991378",
+    "cloudId": "e8e59856-8f5a-47e0-bf08-87326b8f73c5",
+    "cloudSiteUrl": "https://tudor.atlassian.net",
+    "saleType": "RENEWAL",
+    "unitPrice": 0,
+    "platform": "CLOUD",
+    "taxExempt": false,
+    "licenseType": "COMMERCIAL",
+    "unitCount": 987654321,
+    "isTrialPeriod": false,
+    "isUnlimitedUsers": true,
+    "maintenanceMonths": 12,
+    "priceAdjustment": 0,
+    "upgradeCredit": 0,
+    "partnerDiscountTotal": 0,
+    "loyaltyDiscountTotal": 0,
+    "discounts": [],
+    "total": 0
+  }],
+  "totalExTax": 95301,
+  "totalIncTax": 95301,
+  "totalTax": 0,
+  "httpcode": 200
+}

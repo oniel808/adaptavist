@@ -1,0 +1,16 @@
+<customlist scriptid="customlist_mac_account">
+  <description></description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>MAC Account</name>
+  <customvalues>
+    <customvalue scriptid="val_58815_8190294_sb1_221">
+      <isinactive>F</isinactive>
+      <value>UK</value>
+    </customvalue>
+    <customvalue scriptid="val_58816_8190294_sb1_277">
+      <isinactive>F</isinactive>
+      <value>KL</value>
+    </customvalue>
+  </customvalues>
+</customlist>

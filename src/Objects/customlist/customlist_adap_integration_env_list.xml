@@ -1,0 +1,16 @@
+<customlist scriptid="customlist_adap_integration_env_list">
+  <description></description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>[Integration] API Env List</name>
+  <customvalues>
+    <customvalue scriptid="val_49958_8190294_sb1_778">
+      <isinactive>F</isinactive>
+      <value>Sandbox</value>
+    </customvalue>
+    <customvalue scriptid="val_49959_8190294_sb1_196">
+      <isinactive>F</isinactive>
+      <value>Production</value>
+    </customvalue>
+  </customvalues>
+</customlist>

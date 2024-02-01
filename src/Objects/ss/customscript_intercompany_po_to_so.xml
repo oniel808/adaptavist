@@ -1,0 +1,24 @@
+<scheduledscript scriptid="customscript_intercompany_po_to_so">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>[SR] Intercompany PO to SO</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/POC Intercompany PO/Scheduled Script/ada-_interco_po_to_so.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_intercompany_po_to_so">
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>[SR] Intercompany PO to SO</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2023-12-05</startdate>
+          <starttime>02:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</scheduledscript>

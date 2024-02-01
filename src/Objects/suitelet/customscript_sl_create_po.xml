@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_sl_create_po">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>[SR] Create PO From Invoice SL</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/Atlassian Cart Integration/Purchase Order/Suitelet/adap_sl_create_po.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_sl_create_po">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>[SR] Create PO From Invoice SL</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

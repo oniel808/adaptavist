@@ -1,0 +1,24 @@
+<customlist scriptid="customlist_st_hosting_list">
+  <description>This field indicates the source server of the website hosting provider. It specifies the server location or data center from where the hosting services are provided.</description>
+  <isinactive>F</isinactive>
+  <isordered>F</isordered>
+  <name>Hosting list</name>
+  <customvalues>
+    <customvalue scriptid="val_43418_8190294_642">
+      <isinactive>F</isinactive>
+      <value>Cloud</value>
+    </customvalue>
+    <customvalue scriptid="val_43419_8190294_303">
+      <isinactive>F</isinactive>
+      <value>Data Center</value>
+    </customvalue>
+    <customvalue scriptid="val_43420_8190294_352">
+      <isinactive>F</isinactive>
+      <value>Server</value>
+    </customvalue>
+    <customvalue scriptid="val_49996_8190294_sb1_679">
+      <isinactive>F</isinactive>
+      <value>Services</value>
+    </customvalue>
+  </customvalues>
+</customlist>

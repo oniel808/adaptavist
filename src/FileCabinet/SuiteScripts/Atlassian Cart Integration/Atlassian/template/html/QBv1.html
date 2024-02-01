@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css"
+		href="/core/media/media.nl?id=4720&c=&h=mZOa1Nanqil7lNwMlnARo2avWoISRjIficGsqvMuOxWsv29o&_xt=.css">
+	<script src="/core/media/media.nl?id=4723&c=&h=X2nV87x9JmORtwEApPCZZXZHNSpE6ZwjksupARI7AitWXZjE&_xt=.js"></script>
+	<script src="/core/media/media.nl?id=4721&c=&h=zWjEPKE6SzPptV61VokhXzKBFX_jO8Vd94ePrCUjPGyAmTBv&_xt=.js"></script>
+	<style>
+		.ui.grid.components {
+			width: 100%
+		}
+
+		.row.card {
+			box-shadow: 1px 1px 3px #bababa;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		.card-header {
+			color: #454545 !important;
+			font-weight: normal !important;
+			margin-bottom: 20px !important;
+		}
+
+		/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+			-moz-appearance: textfield;
+		}
+	</style>
+</head>
+
+<body>
+	<form class="ui form">
+
+		<div class="ui bottom attached">
+			<div class="ui grid components" style="padding-left: 20px; padding-top: 13px;">
+
+				<div class="row card estimate-config">
+					<div class="fluid column ">
+						<h2 class="ui header card-header">Estimate's configuration</h2>
+						<h4 class="ui header " style="margin-top: 0px;">Currency</h4>
+						<div class="ui four search selection dropdown estimate-currency " style="padding-bottom:0px">
+							<input type="hidden" id="estimate-currency" name="estimate-currency" value="">
+							<i class="dropdown icon"></i>
+							<div class="text">Select Currency</div>
+							<div class="menu"> </div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row findnewappsComponent card">
+					<div class="fluid column">
+						<h2 class="ui header card-header">Find new apps</h2>
+						<div class="ui fluid search selection dropdown findnewapps findnewappsSearchBar">
+							<input type="hidden" name="findnewapps">
+							<i class="dropdown icon"></i>
+							<div class="default text">Search</div>
+							<div class="menu">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row card">
+					<div class="fluid column">
+						<div class="ui grid components">
+							<div class="row" style="padding-bottom:0px">
+								<div class="fluid column">
+									<h2 class="ui header card-header" style="padding-bottom: 10px;">Renew existing
+										licenses</h2>
+								</div>
+							</div>
+
+							<div class="row getrenewals" style="padding-top:0px">
+								<div class="five wide column">
+									<div class="ui fluid labeled input field senRenew">
+										<div class="ui label">
+											SEN-
+										</div>
+										<input type="number" name="senRenewLicense">
+									</div>
+								</div>
+								<div class="five wide column">
+									<div class="ui fluid labeled input field emailRenew">
+										<div class="ui label">
+											Email
+										</div>
+										<input type="text" name="emailRenewLicense">
+									</div>
+								</div>
+								<div class="three wide column">
+									<button class="ui primary button getRenewOption-button getrenewals-button disabled"
+										onclick="getLicenseOption({identifier:'Renew',table:'getrenewals'})"
+										type="button">
+										Get Renewals
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row card">
+					<div class="fluid column">
+						<div class="ui grid components">
+							<div class="row" style="padding-bottom:0px">
+								<div class="fluid column">
+									<h2 class="ui header card-header" style="padding-bottom: 10px;">Upgrade existing
+										licenses</h2>
+								</div>
+							</div>
+
+							<div class="row getupgrades" style="padding-top:0px">
+								<div class="five wide column ">
+									<div class="ui fluid labeled input field senUpgrade">
+										<div class="ui label">
+											SEN-
+										</div>
+										<input type="number" name="senUpgradeLicense">
+									</div>
+								</div>
+								<div class="five wide column">
+									<div class="ui fluid labeled input field emailUpgrade">
+										<div class="ui label">
+											Email
+										</div>
+										<input type="text" name="emailUpgradeLicense">
+									</div>
+								</div>
+								<div class="three wide column">
+									<button
+										class="ui primary button getUpgradeOption-button getupgrades-button disabled"
+										onclick="getLicenseOption({identifier:'Upgrade',table:'getupgrades'})"
+										type="button">
+										Get Upgrades
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" style="padding-bottom:0px">
+					<div class="nine wide column">
+						<h2 class="ui header card-header">Current cart</h2>
+					</div>
+					<div class="three wide column">
+						<div class="ui field labeled input input-setDiscountToAll-discount">
+							<div class="ui label">Discount Setter</div>
+							<input type="number" style="width: 115px;" min="0" max="100">
+						</div>
+					</div>
+				</div>
+
+				<div class="row" style="padding-top:0px">
+					<div class="fluid column">
+						<table class="ui selectable celled table striped currentTableList">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Product</th>
+									<th>Tier</th>
+									<th>List Price</th>
+									<th>Upgrade Credit</th>
+									<th>Avst discount amount</th>
+									<th>Avst total</th>
+									<th>Discount (%)</th>
+									<th>Customer price</th>
+									<th>Margin</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row">
+					<div class="three wide column">
+					</div>
+					<div class="thirteen wide column" style="text-align: right;">
+						Total Avst price: $<span class="summary-avstTotal">0</span><br />
+						Total customer credit:$<span class="summary-totalCustomerCredit">0</span><br />
+						Total customer price:$<span class="summary-customerPrice">0</span><br />
+						Total Margin:$<span class="summary-totalMargin">0</span><br />
+						Quote total discount:<span class="summary-totalDiscount"></span>%<br /><br />
+						<div class="ui checkbox setDiscountToAll-checkbox">
+							<input id="setDiscountToAll-checkbox" type="checkbox" name="setDiscountToAll">
+							<!--<label for="setDiscountToAll-checkbox" style="font-size: smaller;">Show discount % to customer</label>-->
+						</div>
+					</div>
+				</div>
+
+				<div class="ui divider"></div>
+
+				<div class="row">
+					<div class="sixteen wide column" style="text-align: right;">
+						Total List Price: $<span class="summary-listPrice"></span></span><br />
+						Total List Price With Adjustments: $<span
+							class="summary-totalListPriceWithAdjustments"></span></span><br />
+						Total List Price Adjustments: $<span
+							class="summary-totalListPriceAdjustments"></span></span><br />
+						Total Upgrade Credit: $<span class="summary-upgradeCredit"></span><br />
+					</div>
+				</div>
+				<div class="ui divider"></div>
+				<div class="row actions">
+					<div class="right floated right aligned sixteen wide column">
+						<div class="ui grey button cancel-cart-button" name="cancel" onclick="closeWindow()">
+							Cancel
+						</div>
+						<div class="ui blue button saveAsDraft-button disabled" name="savedraft"
+							onclick="saveAsDraft({class:'saveAsDraft'})">
+							Save Draft
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end -->
+		<div class="ui modal error-modal inverted">
+			<div class="header error-header"></div>
+			<div class="content error-content"></div>
+		</div>
+	</form>
+
+	<script>
+		$(document).ready(() => {
+			$('.input-setDiscountToAll-discount input').on('change', () => {
+				console.log($('.allDiscount-discount input'))
+				$('.allDiscount-discount input').val($('.input-setDiscountToAll-discount input').val())
+				$('.allDiscount-discount input').trigger('change')
+			})
+			var objXtool = window.parent.document.getElementsByClassName('x-tool-tool-el');
+			$(objXtool).removeClass('x-tool-img');
+			$('input[name=emailRenewLicense]').on('change', (el) => el.currentTarget.value = el.currentTarget.value.replaceAll(' ', ''))
+			$('input[name=emailUpgradeLicense]').on('change', (el) => el.currentTarget.value = el.currentTarget.value.replaceAll(' ', ''))
+			$('input[name=senRenewLicense]').on('change', (el) => removeExtraChar(el.currentTarget))
+			$('input[name=senUpgradeLicense]').on('change', (el) => removeExtraChar(el.currentTarget))
+			function removeExtraChar(el) {
+				let inputValue = el.value;
+				var inputNewValue = parseInt(inputValue)
+				el.value = inputNewValue >= 0 ? inputNewValue : '';
+			}
+		})
+
+		$(document).keypress(
+			function (event) {
+				if (event.which == '13') {
+					event.preventDefault();
+				}
+			});
+
+		/* to activate all dropdown functions */
+		$('.ui.dropdown').dropdown();
+
+		// const closeWindow = () => $( '.x-tool-close' ).trigger( 'click' )
+		var objCart = {};
+		const scriptLink = '/app/site/hosting/scriptlet.nl?script=customscript_adap_atlassiancart_op_sl&deploy=customdeploy_adap_atlassiancart_op_sl';
+
+		$('.ui.form').form({
+			fields: {
+				firstname: 'empty',
+				lastname: 'empty',
+			}
+		});
+		const beforeUnloadFn = (options) => {
+			$('.cancel-cart-button').addClass('disabled')
+			if (options.cartid) {
+				$.ajax({
+					url: scriptLink,
+					method: 'POST',
+					data: {
+						action: 'cartIsChanged',
+						changed: true,
+						cartid: options.cartid
+					},
+					success: function (data) {
+						console.log('Cart Changed')
+					},
+					error: function (data) {
+						console.log('Cart Changed ERROR')
+					}
+				});
+			}
+		}
+
+		const loader = (option) => {
+			// if (!$(`.${option.name}-loader`).length)
+			if (option.isLoading) {
+				$(`<div class="ui segment ${option.name}-loader" style="height:${option.height || 100}px; width:100% !important">
+					<div class="ui active ${option.isDimmed ? '' : 'inverted'} dimmer">
+					<div class="ui text loader">Loading</div>
+					</div>
+					<p></p>
+				</div>`).insertAfter(`.${option.anchor}`);
+			} else {
+				$(`.${option.name}-loader`).remove();
+			}
+		}
+		const buttonLoader = (option) => {
+			if (option.disable) {
+				$(`.${option.class}-button`).html(`<div class="ui active inline loader ${option.classes}"></div>`);
+				$(`.${option.class}-button`).removeAttr('onclick');
+			} else {
+				$(`.${option.class}-button`).html(option.name);
+				$(`.${option.class}-button`).attr('onclick', option.onclick)
+			}
+		}
+		function localStorageFn(option) {
+			if (option.action == 'save') {
+				var strSenValues = localStorage.getItem("senNumbers") || '[]';
+				var arrSenValues = JSON.parse(strSenValues);
+				var intSenIndx = arrSenValues.findIndex((obj) => obj.sen == option.data.sen);
+
+				if (intSenIndx >= 0) {
+					arrSenValues[intSenIndx] = option.data;
+				} else {
+					arrSenValues.push(option.data);
+				}
+				localStorage.setItem("senNumbers", JSON.stringify(arrSenValues));
+				return arrSenValues;
+			} else if (option.action == 'get') {
+				var objSenNumbers = JSON.parse(localStorage.getItem("senNumbers") || '[]')
+				return objSenNumbers;
+			}
+		}
+
+
+	</script>
+</body>
+
+</html>
